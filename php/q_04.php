@@ -5,8 +5,7 @@ $s_count = 0;
 $b_count = 0;
 
 for ($i=0; $i < $n; $i++) { 
-    $status = trim(fgets(STDIN));
-    array_push($ary, $status);
+    array_push($ary, trim(fgets(STDIN)));
 }
 
 for ($j=0; $j < $n; $j++) { 
@@ -18,13 +17,13 @@ for ($j=0; $j < $n; $j++) {
             echo 'out!' . PHP_EOL;
             break;
         }
-    } elseif ($ary[$j] == 'ball') {
-        $b_count += 1;
-        if ($b_count <= 3) {
-            echo 'ball!' . PHP_EOL;
-        } else {
-            echo 'fourball!' . PHP_EOL;
-            break;
-        }
+        continue;
+    }
+    $b_count += 1;
+    if ($b_count <= 3) {
+        echo 'ball!' . PHP_EOL;
+    } else {
+        echo 'fourball!' . PHP_EOL;
+        break;
     }
 }
